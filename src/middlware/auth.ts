@@ -36,7 +36,10 @@ const auth = (...roles: ("admin" | "user")[]) => {
       console.log(decoded);
       req.user = decoded;
       console.log(req.user);
-      if (roles.length > 0 && !roles.includes(decoded.role)) {
+      if (
+        roles.length > 0 &&
+        !roles.includes(decoded.role as "admin" | "user")
+      ) {
         return res.status(403).json({
           success: false,
           message: "User not authorized",
