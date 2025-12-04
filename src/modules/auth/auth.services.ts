@@ -16,7 +16,8 @@ const loginUserIntoDb = async (email: string, password: string) => {
   const jwtPayload = {
     id: user.rows[0].id,
     email: user.rows[0].email,
-    name: user.rows[0].id.name,
+    name: user.rows[0].name,
+    role: user.rows[0].role,
   };
   const secret = "KMUFsIDTnFmyG3nMiGM6H9FNFUROf3wh7SmqJp-QV30";
 
