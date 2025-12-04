@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import jwt, { JwtPayload } from "jsonwebtoken";
 import { pool } from "../database/db";
 
-const auth = (...roles: string[]) => {
+const auth = (...roles: ("admin" | "user")[]) => {
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
       const token = req.headers.authorization;
